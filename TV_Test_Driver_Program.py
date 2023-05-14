@@ -18,12 +18,19 @@ class TV:
     maximum_volume = 7
 
     # Create Constructor
-    def __init__(self, channel=1, volume=1, tv_is_on=False)
-    """Constructor for creating a new TV object"""
+    def __init__(self, channel=1, volume=1, tv_is_on=False):
+        """Constructor for creating a new TV object
+        
+        Parameters:
+        channel (int): The starting value of the channel. The default value is 1.
+        volume (int): The starting level of the volume. The default level is 1.
+        tv_is_on (bool): The starting power state of the Televisiom. The default power state is false.
+        
+        """
     # Create Instances
-    self.channel = channel
-    self.volume = volume
-    self.tv_is_on = tv_is_on
+        self.channel = channel
+        self.volume = volume
+        self.tv_is_on = tv_is_on
 
 # Turn on the TV
 # Turn off the TV
