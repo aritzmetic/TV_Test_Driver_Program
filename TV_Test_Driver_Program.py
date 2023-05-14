@@ -1,12 +1,5 @@
 # Delera, Aritz B.
 
-# Exercise:
-# Given: A UML Class Diagram below:
-# Required: Create a Python Code for creating the Class named TV
-# and a Test Driver program named TestTV that will create two objects from Class TV 
-# and will produce the following output:
-
-# PSEUDOCODE
 # Create Class 
 class TV:
     """A class representing a TV"""
@@ -126,3 +119,14 @@ class TestTV:
     # Print the intances
     print("tv1's channel is", tv1.getChannel(), "and volume level is", tv1.getVolume())
     print("tv2's channel is", tv2.getChannel(), "and volume level is", tv2.getVolume())
+
+    # Ask the user for their name and make a greeting
+        # use while loop
+            # ask the user if they want to change the TV
+    #  if the yser want to change, then
+        # ask the user what TV they want to change
+        # ask the user what setting they want to change
+        # ask the user for the value that they want
+        # set the setting
+        # ask the user if they want to change again
+    # if not, then break the code
