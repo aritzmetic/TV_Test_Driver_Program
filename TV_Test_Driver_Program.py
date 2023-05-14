@@ -218,16 +218,16 @@ class TestTV:
                 if change_tvs.lower() == "n":
                     goodbye_quotes = [
                 
-                "Television is an invention that permits you to be entertained in your living room by people you wouldn't have in your home. - David Frost",
-                "Television is chewing gum for the eyes. - Frank Lloyd Wright",
-                "Television has brought back murder into the home - where it belongs. - Alfred Hitchcock",
-                "Television: a medium. So called because it's neither rare nor well done. - Ernie Kovacs"
-                ]
+                    "Television is an invention that permits you to be entertained in your living room by people you wouldn't have in your home. - David Frost",
+                    "Television is chewing gum for the eyes. - Frank Lloyd Wright",
+                    "Television has brought back murder into the home - where it belongs. - Alfred Hitchcock",
+                    "Television: a medium. So called because it's neither rare nor well done. - Ernie Kovacs"
+                    ]
 
-                print("Thank you for using AritzMetic's TV Tester!\n{}".format(random.choice(goodbye_quotes)))
-                f = Figlet(font='doom')
-                print(colored(f.renderText('=THE END='), 'green'))
-                break
+                    print("Thank you for using AritzMetic's TV Tester!\n{}".format(random.choice(goodbye_quotes)))
+                    f = Figlet(font='doom')
+                    print(colored(f.renderText('=THE END='), 'green'))
+                    break
         else:
             goodbye_quotes = [
                 
