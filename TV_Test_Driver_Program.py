@@ -64,11 +64,25 @@ class TV:
         if self.minimum_volume <= volume <= self.maximum_volume:
             self.volume = volume
 
+    # Use channelUp to increment the channel by 1 if it is in a minimum value
+    def channelUp(self):
+         if self.channel < self.maximum_channel:
+            self.channel += 1
 
-# Use channelUp to increment the channel by 1 if it is in a minimum value
-# Use channelDown to decrement the channel by 1 if it is in a maximum value
-# Use volumeUp to increment the volume by 1 if it is in a minimum value
-# Use volumeDown to decrement the volume by 1 if it is in a maximum value
+    # Use channelDown to decrement the channel by 1 if it is in a maximum value
+    def channelDown(self):
+        if self.channel > self.minimum_channel:
+            self.channel -= 1
+
+    # Use volumeUp to increment the volume by 1 if it is in a minimum value
+    def volumeUp(self):
+        if self.volume < self.maximum_volume:
+            self.volume += 1
+
+    # Use volumeDown to decrement the volume by 1 if it is in a maximum value
+    def volumeDown(self):
+        if self.volume > self.maximum_volume:
+            self.volume -= 1
 
 # Create test driver program class named TestTV
 # Create two instances; tv1 and tv2
