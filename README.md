@@ -33,4 +33,8 @@ https://github.com/aritzmetic/TV_Test_Driver_Program/assets/112628197/abba9e98-2
 > 5. Start the program by either selecting the "Run" button from the menu bar or tapping the "F5" key on your keyboard.
 > 6. After that, the program will run in the console of the integrated development environment (IDE), and you will be able to interact with it by following the instructions that are displayed on the screen.
 
+https://github.com/aritzmetic/TV_Test_Driver_Program/assets/112628197/75d02e1f-3a17-4915-9ecf-632e3007b2e7
 
+--------------------------------------------------------------------------------------------------------------------------------------------------
+
+**_You are free to get in touch with me, @aritzmetic,  or to report problems directly on this repository if you discover problems with the project. Check out our [contribution guidelines](https://docs.github.com/en/communities/setting-up-your-project-for-healthy-contributions/setting-guidelines-for-repository-contributors) if you are interested in doing more to help the development of the project. Thank you!_** 
