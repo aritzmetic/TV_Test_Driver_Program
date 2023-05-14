@@ -117,5 +117,12 @@ class TV:
             self.volume -= 1
 
 # Create test driver program class named TestTV
-# Create two instances; tv1 and tv2
-# Print the intances
+class TestTV:
+
+    # Create two instances; tv1 and tv2
+    tv1 = TV('30', '3')
+    tv2 = TV('3', '2')
+
+    # Print the intances
+    print("tv1's channel is", tv1.getChannel(), "and volume level is", tv1.getVolume())
+    print("tv2's channel is", tv2.getChannel(), "and volume level is", tv2.getVolume())
