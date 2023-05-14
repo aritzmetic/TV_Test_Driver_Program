@@ -25,19 +25,46 @@ class TV:
         channel (int): The starting value of the channel. The default value is 1.
         volume (int): The starting level of the volume. The default level is 1.
         tv_is_on (bool): The starting power state of the Televisiom. The default power state is false.
-        
+
         """
     # Create Instances
         self.channel = channel
         self.volume = volume
         self.tv_is_on = tv_is_on
 
-# Turn on the TV
-# Turn off the TV
-# Get the Channel
-# Set the Channel
-# Get the Volume
-# Set the Volume
+    # Turn on the TV
+    def turnOn(self):
+        """Turns on the TV"""
+        tv_is_on = True
+        
+    # Turn off the TV
+    def turnOff(self):
+        """Turns off the TV"""
+        tv_is_on = False
+
+    # Get the Channel
+    def getChannel(self):
+        """Returns the channel that is currently being displayed on the TV"""
+        return self.channel
+
+    # Set the Channel
+    def setChannel(self, channel):
+        """Sets the TV channel to the given value, as long as it's within the valid range."""
+        if self.minimum_channel <= channel <= self.maximum_channel:
+            self.channel = channel
+
+    # Get the Volume
+    def getVolume(self):
+        """Returns the volume level that is currently being displayed on the TV"""
+        return self.volume
+
+    # Set the Volume
+    def setVolume(self, volume):
+        """Sets the TV's volume level to the given value, as long as it's within the valid range."""
+        if self.minimum_volume <= volume <= self.maximum_volume:
+            self.volume = volume
+
+
 # Use channelUp to increment the channel by 1 if it is in a minimum value
 # Use channelDown to decrement the channel by 1 if it is in a maximum value
 # Use volumeUp to increment the volume by 1 if it is in a minimum value
