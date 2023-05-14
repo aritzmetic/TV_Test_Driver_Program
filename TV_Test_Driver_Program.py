@@ -2,13 +2,18 @@
 
 import time
 import pyfiglet
+import random
 
-opening = pyfiglet.figlet_format("= O.O.P =", font="starwars")
-print(opening)
+from termcolor import colored
+from pyfiglet import Figlet
+
+
+f = Figlet(font='isometric2')
+print(colored(f.renderText('OOP'), 'blue'))
 
 # Create an introduction
 print("=" * 61)
-print(" Welcome to AritzMetic's Television Tester! ".center(60, "+"))
+print("\033[32m Welcome to AritzMetic's Television Tester! \033[0m".center(60, "+"))
 print("=" * 61)
 
     # Ask the user for their name and make a greeting
@@ -32,7 +37,7 @@ class TV:
         Parameters:
         channel (int): The starting value of the channel. The default value is 1.
         volume (int): The starting level of the volume. The default level is 1.
-        tv_is_on (bool): The starting power state of the Televisiom. The default power state is false.
+        tv_is_on (bool): The starting power state of the Television. The default power state is false.
 
         """
     # Create Instances
@@ -138,22 +143,24 @@ class TestTV:
         print(":" * 61)
         time.sleep(3)
         print()
+        print()
         print("<>" * 30)
-        print("tv1's channel is", tv1.getChannel(), "and volume level is", tv1.getVolume())
-        print("tv2's channel is", tv2.getChannel(), "and volume level is", tv2.getVolume())
+        print("\033[32mtv1's channel is", tv1.getChannel(), "and volume level is " + tv1.getVolume() + ".\033[0m")
+        print("\033[32mtv2's channel is", tv2.getChannel(), "and volume level is " + tv2.getVolume() + ".\033[0m")
         print("<>" * 30)
+        print()
         time.sleep(2)
 
         # use while loop
         while True:
             try:
                 # Ask the user if they want to change the TVs
-                tv_change = input(f"\nHi {name}! Do you want to change the settings on the TVs? (y/n) ")
+                tv_change = input(f"\033[30m\nHi {name}! Do you want to change the settings on the TVs? (y/n) \033[0m")
                 if tv_change.lower() != 'y' and tv_change.lower() != 'n':
                     raise ValueError
                 break
             except ValueError:
-                print("Invalid input. Please enter 'y' or 'n'.")
+                print("\033[34mInvalid input. Please enter 'y' or 'n'.\033[0m")
 
         # If the user wants to change the TVs, allow them to do so.
         if tv_change.lower() == "y":
@@ -161,28 +168,28 @@ class TestTV:
                 # Ask the user which TV they want to change.
                 while True:
                     try:
-                        tv_num = int(input("Which TV do you want to change? (1 or 2) "))
+                        tv_num = int(input("\033[30mWhich TV do you want to change? (1 or 2) \033[0m"))
                         if tv_num != 1 and tv_num != 2:
                             raise ValueError
                         break
                     except ValueError:
-                        print("Invalid input. Please enter 1 or 2.")
+                        print("\033[34mInvalid input. Please enter 1 or 2.\033[0m")
 
                 # Ask the user what setting they want to change.
                 while True:
-                    tv_setting = input("What do you want to change? [channel or volume] ")
+                    tv_setting = input("\033[30mWhat do you want to change? [channel or volume]\033[0m ")
                     if tv_setting.lower() == "channel" or tv_setting.lower() == "volume":
                         break
                     else:
-                        print("Invalid input. Please enter 'channel' or 'volume'.")
+                        print("\033[34mInvalid input. Please enter 'channel' or 'volume'.\033[0m")
 
                 # Ask the user what value they want to set the setting to.
                 while True:
                     try:
-                        value = int(input("What do you want to set the " + tv_setting + " to? "))
+                        value = int(input("\033[30mWhat do you want to set the " + tv_setting + " to?\033[0m "))
                         break
                     except ValueError:
-                        print("Invalid input. Please enter a number.")
+                        print("\033[34mInvalid input. Please enter a number.\033[0m")
 
                 # Set the specified setting on the specified TV to the specified value.
                 if tv_num == 1:
@@ -190,29 +197,40 @@ class TestTV:
                         tv1.setChannel(value)
                     else:
                         tv1.setVolume(value)
-                    print("tv1's channel is", tv1.getChannel(), "and volume level is", tv1.getVolume())
+                    print("\033[45mtv1's channel is", tv1.getChannel(), "and volume level is ", tv1.getVolume(),".\033[0m")
                 else:
                     if tv_setting.lower() == "channel":
                         tv2.setChannel(value)
                     else:
                         tv2.setVolume(value)
-                    print("tv2's channel is", tv2.getChannel(), "and volume level is", tv2.getVolume())
+                    print("\033[45mtv2's channel is", tv2.getChannel(), "and volume level is ", tv2.getVolume() ,".\033[0m")
 
                 # Ask the user if they want to change the TVs again.
                 while True:
                     try:
-                        change_tvs = input("\nDo you want to change the settings on the TVs again? (y/n) ")
+                        change_tvs = input("\033[30m\nDo you want to change the settings on the TVs again? (y/n) \033[0m")
                         if change_tvs.lower() != 'y' and change_tvs.lower() != 'n':
                             raise ValueError
                         break
                     except ValueError:
-                        print("Invalid input. Please enter 'y' or 'n'.")
+                        print("\033[34mInvalid input. Please enter 'y' or 'n'.\033[0m")
 
                 if change_tvs.lower() == "n":
-                    print("Thank You!")
+                    print()
                     break
         else:
-            print("Thank You!")
+            goodbye_quotes = [
+                
+                "Television is an invention that permits you to be entertained in your living room by people you wouldn't have in your home. - David Frost",
+                "Television is chewing gum for the eyes. - Frank Lloyd Wright",
+                "Television has brought back murder into the home - where it belongs. - Alfred Hitchcock",
+                "Television: a medium. So called because it's neither rare nor well done. - Ernie Kovacs"
+            ]
+
+            print("Thank you for using AritzMetic's TV Tester!\n{}".format(random.choice(goodbye_quotes)))
+            f = Figlet(font='doom')
+            print(colored(f.renderText('=THE END='), 'green'))
+            
 
 test_tv = TestTV()
 test_tv.test()
