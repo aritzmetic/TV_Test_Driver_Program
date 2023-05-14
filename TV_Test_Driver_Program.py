@@ -146,20 +146,42 @@ class TestTV:
 
     # use while loop
     while True:
+        try:
         # ask the user if they want to change the TV
-        tv_change = input(f"\nHi {name}! Do you want to change the settings on the TVs? (y/n) ")
+            tv_change = input(f"\nHi {name}! Do you want to change the settings on the TVs? (y/n) ")
+            if tv_change.lower() != 'y' and tv_change.lower() != 'n':
+                raise ValueError
+            break
+        except ValueError:
+                print("Invalid input. Please enter 'y' or 'n'.")
 
         #  if the yser want to change, then
         if tv_change.lower() == "y":
+            while True:
+                # ask the user what TV they want to change
+                try:
+                    tv_num = int(input("Which TV do you want to change? (1 or 2) "))
+                    if tv_num != 1 and tv_num != 2:
+                        raise ValueError
+                    break
+                except ValueError:
+                    print("Invalid input. Please enter 1 or 2.")
 
-            # ask the user what TV they want to change
-            tv_num = int(input("Which TV do you want to change? (1 or 2) "))
-
+            while True:
             # ask the user what setting they want to change
-            tv_setting = input("What do you want to change? [channel or volume] ")
+                tv_setting = input("What do you want to change? [channel or volume] ")
+                if tv_setting.lower() == "channel" or tv_setting.lower() == "volume":
+                    break
+                else:
+                    print("Invalid input. Please enter 'channel' or 'volume'.")
 
             # ask the user for the value that they want
-            value = int(input("What do you want to set the " + tv_setting + " to? "))
+            while True:
+                try:
+                    value = int(input("What do you want to set the " + tv_setting + " to? "))
+                    break
+                except ValueError:
+                    print("Invalid input. Please enter a number.")
 
             # set the setting
             if tv_num == 1:
@@ -176,9 +198,17 @@ class TestTV:
                 print("tv2's channel is", tv2.getChannel(), "and volume level is", tv2.getVolume())
 
         # ask the user if they want to change again
-        tv_change = input(f"\nDo you want to change the settings on the TVs again? (y/n) ")
-        if tv_change.lower() == "n":
-            break
+            while True:
+                try:
+                    tv_change = input(f"\nDo you want to change the settings on the TVs again? (y/n) ")
+                    if change_tvs.lower() != 'y' and change_tvs.lower() != 'n':
+                        raise ValueError
+                    break
+                except ValueError:
+                    print("Invalid input. Please enter 'y' or 'n'.")
+                    
+            if tv_change.lower() == "n":
+                        break
         # if not, then break the code
         else:
             print("Thank you!")
