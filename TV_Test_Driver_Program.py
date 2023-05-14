@@ -1,5 +1,20 @@
 # Delera, Aritz B.
 
+import time
+import pyfiglet
+
+opening = pyfiglet.figlet_format("= O.O.P =", font="starwars")
+print(opening)
+
+# Create an introduction
+print("=" * 61)
+print(" Welcome to AritzMetic's Television Tester! ".center(60, "+"))
+print("=" * 61)
+
+    # Ask the user for their name and make a greeting
+name = input("\033[30mHi Smart Pipol! what is your name?: \033[0m")
+print("\033[31mHi", name, "! AritzMetic is here to help you in navigating your TVs!!\033[0m")
+
 # Create Class 
 class TV:
     """A class representing a TV"""
@@ -117,16 +132,53 @@ class TestTV:
     tv2 = TV('3', '2')
 
     # Print the intances
+    time.sleep(1)
+    print(":" * 61)
+    print("\033[33mProcessing...\033[0m" .center(70))
+    print(":" * 61)
+    time.sleep(3)
+    print()
+    print("<>" * 30)
     print("tv1's channel is", tv1.getChannel(), "and volume level is", tv1.getVolume())
     print("tv2's channel is", tv2.getChannel(), "and volume level is", tv2.getVolume())
+    print("<>" * 30)
+    time.sleep(2)
 
-    # Ask the user for their name and make a greeting
-        # use while loop
-            # ask the user if they want to change the TV
-    #  if the yser want to change, then
-        # ask the user what TV they want to change
-        # ask the user what setting they want to change
-        # ask the user for the value that they want
-        # set the setting
+    # use while loop
+    while True:
+        # ask the user if they want to change the TV
+        tv_change = input(f"\nHi {name}! Do you want to change the settings on the TVs? (y/n) ")
+
+        #  if the yser want to change, then
+        if tv_change.lower() == "y":
+
+            # ask the user what TV they want to change
+            tv_num = int(input("Which TV do you want to change? (1 or 2) "))
+
+            # ask the user what setting they want to change
+            tv_setting = input("What do you want to change? [channel or volume] ")
+
+            # ask the user for the value that they want
+            value = int(input("What do you want to set the " + tv_setting + " to? "))
+
+            # set the setting
+            if tv_num == 1:
+                if tv_setting.lower() == "channel":
+                    tv1.setChannel(value)
+                else:
+                    tv1.setVolume(value)
+                print("tv1's channel is", tv1.getChannel(), "and volume level is", tv1.getVolume())
+            else:
+                if tv_setting.lower() == "channel":
+                    tv2.setChannel(value)
+                else:
+                   tv2.setVolume(value)
+                print("tv2's channel is", tv2.getChannel(), "and volume level is", tv2.getVolume())
+
         # ask the user if they want to change again
-    # if not, then break the code
+        tv_change = input(f"\nDo you want to change the settings on the TVs again? (y/n) ")
+        if tv_change.lower() == "n":
+            break
+        # if not, then break the code
+        else:
+            print("Thank you!")
