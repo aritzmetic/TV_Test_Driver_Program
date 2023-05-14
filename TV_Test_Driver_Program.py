@@ -66,21 +66,53 @@ class TV:
 
     # Use channelUp to increment the channel by 1 if it is in a minimum value
     def channelUp(self):
-         if self.channel < self.maximum_channel:
+        """Method for incrementing the current channel by 1 if it is less than the maximum allowed channel value.
+
+        Args:
+            None
+
+        Returns:
+            None
+        """
+        if self.channel < self.maximum_channel:
             self.channel += 1
 
     # Use channelDown to decrement the channel by 1 if it is in a maximum value
     def channelDown(self):
+        """Method for decrementing the current channel by 1 if it is greater than the minimum allowed channel value.
+
+        Args:
+            None
+
+        Returns:
+            None
+        """
         if self.channel > self.minimum_channel:
             self.channel -= 1
 
     # Use volumeUp to increment the volume by 1 if it is in a minimum value
     def volumeUp(self):
+        """Method for incrementing the current volume by 1 if it is less than the maximum allowed volume value.
+
+        Args:
+            None
+
+        Returns:
+            None
+        """
         if self.volume < self.maximum_volume:
             self.volume += 1
 
     # Use volumeDown to decrement the volume by 1 if it is in a maximum value
     def volumeDown(self):
+        """Method for decrementing the current volume by 1 if it is greater than the minimum allowed volume value.
+
+        Args:
+            None
+
+        Returns:
+            None
+        """
         if self.volume > self.maximum_volume:
             self.volume -= 1
 
