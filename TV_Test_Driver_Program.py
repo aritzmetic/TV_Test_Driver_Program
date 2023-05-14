@@ -8,9 +8,23 @@
 
 # PSEUDOCODE
 # Create Class 
-# Use Class Variable to initialize the values of channel and volume
-# Create Constructor
-# Create Instances
+class TV:
+    """A class representing a TV"""
+
+    # Use Class Variable to initialize the values of channel and volume
+    minimum_channel = 1
+    maximum_channel = 120
+    minimum_volume = 1
+    maximum_volume = 7
+
+    # Create Constructor
+    def __init__(self, channel=1, volume=1, tv_is_on=False)
+    """Constructor for creating a new TV object"""
+    # Create Instances
+    self.channel = channel
+    self.volume = volume
+    self.tv_is_on = tv_is_on
+
 # Turn on the TV
 # Turn off the TV
 # Get the Channel
