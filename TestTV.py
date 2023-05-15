@@ -3,6 +3,7 @@
 import time
 import pyfiglet
 import random
+import datetime
 from termcolor import colored
 from pyfiglet import Figlet
 from TV import TV
@@ -77,7 +78,7 @@ class TestTV:
                     else:
                         print("\033[34mInvalid input. Please enter 'channel' or 'volume'.\033[0m")
 
-                # Ask the user what value they want to set the setting to.
+                
                 # Ask the user what value they want to set the setting to.
                 while True:
                     try:
@@ -126,10 +127,21 @@ class TestTV:
                         file.write("TV Changes:\n")
                         for change in changes:
                             file.write(f"TV {change['tv']} - {change['setting']}: {change['value']}\n")
+                    
+                    # Generate a report of the changes
+                    now = datetime.datetime.now()
+                    report_filename = f"{name}_tv_changes_report.txt"
+                    with open(report_filename, 'w') as file:
+                        file.write(f"TV Changes Report - {now.strftime('%Y-%m-%d %H:%M:%S')}\n")
+                        file.write("=" * 80 + "\n")
+                        file.write(f"Name: {name}\n\n")
+                        file.write("Changes:\n")
+                        for change in changes:
+                            file.write(f"TV {change['tv']} - {change['setting']}: {change['value']}\n")
 
-                            print()
+                            print("=" * 61)
                             print("\033[35mYour changes have been saved to", filename, "successfully!\033[0m")
-                            print()
+                            print("=" * 61)
 
                     goodbye_quotes = [
                         "Television is an invention that permits you to be entertained in your living room by people you wouldn't have in your home. - David Frost",
