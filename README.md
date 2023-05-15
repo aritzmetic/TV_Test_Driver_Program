@@ -19,21 +19,22 @@ https://github.com/aritzmetic/TV_Test_Driver_Program/assets/112628197/abba9e98-2
 - > The **try-except block** was implemented in the test driver's program.
 - > Make use of a **while loop to ensure that the software continues to run** until the user presses the exit button.
 - > **Existence of helpful comments** that elucidates the operation of the program on a component-by-component basis.
+- > it **records and stores the changes** made by the user.
 
 ## **How to run this program?**
-![image](https://github.com/aritzmetic/TV_Test_Driver_Program/assets/112628197/65c9020b-a98b-44fc-9509-08d1842d9ae2)
+![image](https://github.com/aritzmetic/TV_Test_Driver_Program/assets/112628197/f95ffad5-2aa8-4b6d-8c03-611fc94358c4)
 
 ## **How to run this program using IDE?**
 > 1. Open the program in an IDE such as PyCharm or VSCode.
 > 2. Install the required packages using the following command:
  - [ ] **pip install termcolor**
  - [ ] **pip install pyfiglet**
-> 3. Make a copy of the TV show's whole source code, and then paste it into the new file.
+> 3. Make a copy of the TV show's whole source code, and then paste it into the two different file. one for class TV, and one for class TestTV
 > 4. You should use the.py extension when saving the file.
 > 5. Start the program by either selecting the "Run" button from the menu bar or tapping the "F5" key on your keyboard.
 > 6. After that, the program will run in the console of the integrated development environment (IDE), and you will be able to interact with it by following the instructions that are displayed on the screen.
 
-https://github.com/aritzmetic/TV_Test_Driver_Program/assets/112628197/75d02e1f-3a17-4915-9ecf-632e3007b2e7
+https://github.com/aritzmetic/TV_Test_Driver_Program/assets/112628197/aec8b909-2bdb-48f8-88d6-9cc00ac17193
 
 --------------------------------------------------------------------------------------------------------------------------------------------------
 
