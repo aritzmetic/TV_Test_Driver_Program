@@ -3,9 +3,9 @@
 import time
 import pyfiglet
 import random
-
 from termcolor import colored
 from pyfiglet import Figlet
+from TV import TV
 
 
 f = Figlet(font='isometric2')
@@ -19,115 +19,6 @@ print("=" * 61)
     # Ask the user for their name and make a greeting
 name = input("\033[30mHi Smart Pipol! what is your name?: \033[0m")
 print("\033[31mHi", name, "! AritzMetic is here to help you in navigating your TVs!!\033[0m")
-
-# Create Class 
-class TV:
-    """A class representing a TV"""
-
-    # Use Class Variable to initialize the values of channel and volume
-    minimum_channel = 1
-    maximum_channel = 120
-    minimum_volume = 1
-    maximum_volume = 7
-
-    # Create Constructor
-    def __init__(self, channel=1, volume=1, tv_is_on=False):
-        """Constructor for creating a new TV object
-        
-        Parameters:
-        channel (int): The starting value of the channel. The default value is 1.
-        volume (int): The starting level of the volume. The default level is 1.
-        tv_is_on (bool): The starting power state of the Television. The default power state is false.
-
-        """
-    # Create Instances
-        self.channel = channel
-        self.volume = volume
-        self.tv_is_on = tv_is_on
-
-    # Turn on the TV
-    def turnOn(self):
-        """Turns on the TV"""
-        tv_is_on = True
-        
-    # Turn off the TV
-    def turnOff(self):
-        """Turns off the TV"""
-        tv_is_on = False
-
-    # Get the Channel
-    def getChannel(self):
-        """Returns the channel that is currently being displayed on the TV"""
-        return self.channel
-
-    # Set the Channel
-    def setChannel(self, channel):
-        """Sets the TV channel to the given value, as long as it's within the valid range."""
-        if self.minimum_channel <= channel <= self.maximum_channel:
-            self.channel = channel
-
-    # Get the Volume
-    def getVolume(self):
-        """Returns the volume level that is currently being displayed on the TV"""
-        return self.volume
-
-    # Set the Volume
-    def setVolume(self, volume):
-        """Sets the TV's volume level to the given value, as long as it's within the valid range."""
-        if self.minimum_volume <= volume <= self.maximum_volume:
-            self.volume = volume
-
-    # Use channelUp to increment the channel by 1 if it is in a minimum value
-    def channelUp(self):
-        """Method for incrementing the current channel by 1 if it is less than the maximum allowed channel value.
-
-        Args:
-            None
-
-        Returns:
-            None
-        """
-        if self.channel < self.maximum_channel:
-            self.channel += 1
-
-    # Use channelDown to decrement the channel by 1 if it is in a maximum value
-    def channelDown(self):
-        """Method for decrementing the current channel by 1 if it is greater than the minimum allowed channel value.
-
-        Args:
-            None
-
-        Returns:
-            None
-        """
-        if self.channel > self.minimum_channel:
-            self.channel -= 1
-
-    # Use volumeUp to increment the volume by 1 if it is in a minimum value
-    def volumeUp(self):
-        """Method for incrementing the current volume by 1 if it is less than the maximum allowed volume value.
-
-        Args:
-            None
-
-        Returns:
-            None
-        """
-        if self.volume < self.maximum_volume:
-            self.volume += 1
-
-    # Use volumeDown to decrement the volume by 1 if it is in a maximum value
-    def volumeDown(self):
-        """Method for decrementing the current volume by 1 if it is greater than the minimum allowed volume value.
-
-        Args:
-            None
-
-        Returns:
-            None
-        """
-        if self.volume > self.maximum_volume:
-            self.volume -= 1
 
 # Create test driver program class named TestTV
 class TestTV:
@@ -145,8 +36,8 @@ class TestTV:
         print()
         print()
         print("<>" * 30)
-        print("\033[32mtv1's channel is", tv1.getChannel(), "and volume level is " + tv1.getVolume() + ".\033[0m")
-        print("\033[32mtv2's channel is", tv2.getChannel(), "and volume level is " + tv2.getVolume() + ".\033[0m")
+        print("\033[32m 📺 tv1's channel is", tv1.getChannel(), "and volume level is " + tv1.getVolume() + ".\033[0m")
+        print("\033[32m 📺 tv2's channel is", tv2.getChannel(), "and volume level is " + tv2.getVolume() + ".\033[0m")
         print("<>" * 30)
         print()
         time.sleep(2)
@@ -184,6 +75,7 @@ class TestTV:
                         print("\033[34mInvalid input. Please enter 'channel' or 'volume'.\033[0m")
 
                 # Ask the user what value they want to set the setting to.
+                # Ask the user what value they want to set the setting to.
                 while True:
                     try:
                         value = int(input("\033[30mWhat do you want to set the " + tv_setting + " to?\033[0m "))
@@ -197,13 +89,13 @@ class TestTV:
                         tv1.setChannel(value)
                     else:
                         tv1.setVolume(value)
-                    print("\033[45mtv1's channel is", tv1.getChannel(), "and volume level is ", tv1.getVolume(),".\033[0m")
+                    print("\033[45m📺 TV1's channel is", tv1.getChannel(), "and volume level is", tv1.getVolume(),".\033[0m")
                 else:
                     if tv_setting.lower() == "channel":
                         tv2.setChannel(value)
                     else:
                         tv2.setVolume(value)
-                    print("\033[45mtv2's channel is", tv2.getChannel(), "and volume level is ", tv2.getVolume(),".\033[0m")
+                    print("\033[45m📺 TV2's channel is", tv2.getChannel(), "and volume level is", tv2.getVolume(),".\033[0m")
 
                 # Ask the user if they want to change the TVs again.
                 while True:
@@ -217,32 +109,30 @@ class TestTV:
 
                 if change_tvs.lower() == "n":
                     goodbye_quotes = [
-                
-                    "Television is an invention that permits you to be entertained in your living room by people you wouldn't have in your home. - David Frost",
-                    "Television is chewing gum for the eyes. - Frank Lloyd Wright",
-                    "Television has brought back murder into the home - where it belongs. - Alfred Hitchcock",
-                    "Television: a medium. So called because it's neither rare nor well done. - Ernie Kovacs"
+                        "Television is an invention that permits you to be entertained in your living room by people you wouldn't have in your home. - David Frost",
+                        "Television is chewing gum for the eyes. - Frank Lloyd Wright",
+                        "Television has brought back murder into the home - where it belongs. - Alfred Hitchcock",
+                        "Television: a medium. So called because it's neither rare nor well done. - Ernie Kovacs"
                     ]
 
-                    print("Thank you for using AritzMetic's TV Tester!\n{}".format(random.choice(goodbye_quotes)))
+                    print("\033[35mThank you for using AritzMetic's TV Tester! 📺💡\033[0m")
+                    print("{}".format(random.choice(goodbye_quotes)))
                     f = Figlet(font='doom')
                     print(colored(f.renderText('=THE END='), 'green'))
                     break
         else:
             goodbye_quotes = [
-                
                 "Television is an invention that permits you to be entertained in your living room by people you wouldn't have in your home. - David Frost",
                 "Television is chewing gum for the eyes. - Frank Lloyd Wright",
                 "Television has brought back murder into the home - where it belongs. - Alfred Hitchcock",
                 "Television: a medium. So called because it's neither rare nor well done. - Ernie Kovacs"
             ]
 
-            print("Thank you for using AritzMetic's TV Tester!\n{}".format(random.choice(goodbye_quotes)))
+            print("\033[35mThank you for using AritzMetic's TV Tester! 📺💡\033[0m")
+            print("{}".format(random.choice(goodbye_quotes)))
             f = Figlet(font='doom')
             print(colored(f.renderText('=THE END='), 'green'))
-            
+
 
 test_tv = TestTV()
 test_tv.test()
-
-
