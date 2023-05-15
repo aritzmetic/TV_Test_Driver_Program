@@ -27,6 +27,9 @@ class TestTV:
         tv1 = TV('30', '3')
         tv2 = TV('3', '2')
 
+        # Initialize the changes list
+        changes = []
+
         # Print the intances
         time.sleep(1)
         print(":" * 61)
@@ -82,6 +85,14 @@ class TestTV:
                         break
                     except ValueError:
                         print("\033[34mInvalid input. Please enter a number.\033[0m")
+                    
+                # Store the changes made in a dictionary
+                change = {
+                    'tv': tv_num,
+                    'setting': tv_setting,
+                    'value': value
+                }
+                changes.append(change)
 
                 # Set the specified setting on the specified TV to the specified value.
                 if tv_num == 1:
@@ -108,13 +119,25 @@ class TestTV:
                         print("\033[34mInvalid input. Please enter 'y' or 'n'.\033[0m")
 
                 if change_tvs.lower() == "n":
+
+                    # Store the changes to a new file
+                    filename = f"{name}_tv_changes.txt"
+                    with open(filename, 'w') as file:
+                        file.write("TV Changes:\n")
+                        for change in changes:
+                            file.write(f"TV {change['tv']} - {change['setting']}: {change['value']}\n")
+
+                            print()
+                            print("\033[35mYour changes have been saved to", filename, "successfully!\033[0m")
+                            print()
+
                     goodbye_quotes = [
                         "Television is an invention that permits you to be entertained in your living room by people you wouldn't have in your home. - David Frost",
                         "Television is chewing gum for the eyes. - Frank Lloyd Wright",
                         "Television has brought back murder into the home - where it belongs. - Alfred Hitchcock",
                         "Television: a medium. So called because it's neither rare nor well done. - Ernie Kovacs"
                     ]
-
+                    print()
                     print("\033[35mThank you for using AritzMetic's TV Tester! 📺💡\033[0m")
                     print("{}".format(random.choice(goodbye_quotes)))
                     f = Figlet(font='doom')
